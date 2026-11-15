@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# This project is file-based: never commit databases
+*.db
+*.sqlite3
+
+# Data: never commit datasets (see data/README.md)
+data/*
+!data/README.md
+*.log
+*.zip
+*.tar.gz
+*.tgz
+
+# Model artefacts and large outputs
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+checkpoints/
+results/**/*.npy
+results/**/*.parquet
+emissions.csv

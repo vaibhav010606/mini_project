@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logad"
+version = "0.1.0"
+description = "Leakage-free, robustness- and energy-aware log anomaly detection (ML mini project)."
+readme = "README.md"
+requires-python = ">=3.10"
+# Add a dependency here only when the module that needs it lands.
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+# Pipeline and model dependencies, installed with: pip install -e ".[ml]"
+ml = [
+    "pandas>=2.1",
+    "pyarrow>=15",
+    "scikit-learn>=1.4",
+    "pyyaml>=6",
+    "drain3>=0.9.11",
+    "torch>=2.2",
+    "sentence-transformers>=3.0",
+    "codecarbon>=2.4",
+]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "ruff>=0.6",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["logad"]
+
+[tool.coverage.report]
+show_missing = true
